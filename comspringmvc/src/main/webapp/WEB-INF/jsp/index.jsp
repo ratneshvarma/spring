@@ -17,10 +17,14 @@ Hi ${employee.firstName}&nbsp;&nbsp;${employee.lastName}
 </br>&nbsp;&nbsp;&nbsp;&nbsp;
 Welcome to Spring MVC World!
 <br>
+<br/>
+<br/><a href="/user/userList"> <h3>User List </h3></a>
+<br/>
+<h3><a href="/emp/empList"> Emp List</a></h3>
 
 
-
-
+<br>
+<br>
 
 <ul>
     Country List:
@@ -37,7 +41,6 @@ Welcome to Spring MVC World!
 
 Session Available Here: ${user.userFirstName}
 HttpSession Exmaple:${sessionScope.sessionViaHttpSession.firstName}
-<br/><a href="/user/userList"> <h4>User List </h4></a>
 
 </body>
 </html>

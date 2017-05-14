@@ -17,6 +17,12 @@
         <property name="password" value="root"/>
 
     </bean>
+    <bean class="com.spring.mvc.dao.EmpDaoImpl" id="empDao">
+        <property name="jdbcTemplate" ref="jdbcTemplate"/>
+    </bean>
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
     <bean
         class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix">

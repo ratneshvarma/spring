@@ -33,11 +33,8 @@ public class UserDaoImpl implements UserDao {
         Connection conn = null;
 
         try {
-            System.out.println("SQL: "+sql);
-            System.out.println("DATA: "+ dataSource);
-            conn = dataSource.getConnection();
-            System.out.println("SQL2: "+sql);
-            PreparedStatement ps = conn.prepareStatement(sql);
+           conn = dataSource.getConnection();
+           PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1, user.getUserId());
             ps.setString(2, user.getUserFirstName());
             ps.setString(3, user.getUserLastName());

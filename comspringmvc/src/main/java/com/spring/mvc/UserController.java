@@ -30,9 +30,6 @@ public class UserController {
     public ModelAndView getdata() {
         user.setUserFirstName("Ratnesh");
         user.setUserLastName("Varma");
-        user.setUserId(204);
-        user.setUserAge(28);
-//        userService.insertUser();
         List userList= userService.allUsers();
         ModelAndView model = new ModelAndView("user","user",user);
         model.addObject("userList",userList);
@@ -62,20 +59,20 @@ public class UserController {
     @RequestMapping("/updateUser")
     public ModelAndView updateUser(@RequestParam("userId") int userId) {
      User user= userService.specificUser(userId);
-        System.out.println("USER ID: "+userId+ user.getUserFirstName());
         return new ModelAndView("update","user",user);
     }
 
     @RequestMapping(value="/editUser")
-    public ModelAndView saveUpdateUser(@ModelAttribute("user") User user){
+    public ModelAndView saveUpdateUser(@ModelAttribute("user") User user,final RedirectAttributes redirectAttribute){
 
         userService.updateSpecificUser(user);
-        System.out.println("Controller for update"+user.getUserId()+ user.getUserFirstName());
+        redirectAttribute.addFlashAttribute("success","Successfully Updated.");
         return new ModelAndView("redirect:/user/userList");//will redirect to view user request mapping
     }
 
     @RequestMapping("/session-check")
     public String sessionTest(){
+
         return "session";
     }
 }

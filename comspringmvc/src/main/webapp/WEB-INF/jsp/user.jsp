@@ -18,7 +18,7 @@
 
 <b>Hi ${user.userFirstName}</b>, Welcome to Home.
 <p></p>
-<a href="/session-check">Session Test</a>
+<a href="/user/session-check">Session Test</a>
 <p></p>
 HttpSession Exmaple(session will create when /index use):${ sessionScope.sessionViaHttpSession.firstName}
 <br/><a href="/user/newUser">Add User</a>
