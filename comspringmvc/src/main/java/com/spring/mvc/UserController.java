@@ -43,9 +43,10 @@ public class UserController {
     }
 
     @RequestMapping(value="/add",method = RequestMethod.POST)
-    public ModelAndView save(@ModelAttribute("user") User user){
+    public ModelAndView save(@ModelAttribute("user") User user, final RedirectAttributes redirectAttributes){
 
         userService.insertUser(user);
+        redirectAttributes.addFlashAttribute("message","User Inserted");
         return new ModelAndView("redirect:/user/userList");//will redirect to view user request mapping
     }
 
@@ -53,7 +54,7 @@ public class UserController {
  public String deleteUser(@RequestParam("userId") int userId, final RedirectAttributes redirectAttributes){
      userService.userDelete(userId);
      // modelAndView.addObject();
-     redirectAttributes.addFlashAttribute("success","Successfully deleted");
+     redirectAttributes.addFlashAttribute("message","User deleted");
      return "redirect:/user/userList";
  }
     @RequestMapping("/updateUser")
@@ -66,9 +67,10 @@ public class UserController {
     public ModelAndView saveUpdateUser(@ModelAttribute("user") User user,final RedirectAttributes redirectAttribute){
 
         userService.updateSpecificUser(user);
-        redirectAttribute.addFlashAttribute("success","Successfully Updated.");
+        redirectAttribute.addFlashAttribute("message","User Updated.");
         return new ModelAndView("redirect:/user/userList");//will redirect to view user request mapping
     }
+
 
     @RequestMapping("/session-check")
     public String sessionTest(){

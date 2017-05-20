@@ -17,7 +17,7 @@
 <body>
 <h1>Update User...</h1>
 <form:form action="/user/editUser" method="post" modelAttribute="user">
-    <table border="1">
+    <table border="1" align="center">
         <tr>
             <td>User Id:</td><td> <form:input path="userId" value="${user.userId}" readonly="true" /> </td>
         </tr>

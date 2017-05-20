@@ -9,5 +9,8 @@ import java.util.List;
  */
 public interface EmpDao {
     int insertEmp(Emp emp);
+    int deleteEmp(int empId);
+    Emp getEmp(int empId);
+    int updateEmp(Emp emp);
     List allEmp();
 }

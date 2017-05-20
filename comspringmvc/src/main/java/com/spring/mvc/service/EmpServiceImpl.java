@@ -21,7 +21,19 @@ public class EmpServiceImpl implements EmpService {
 
     }
 
+    public int empDelete(int empId) {
+        return empDao.deleteEmp(empId);
+    }
+
+    public int empUpdate(Emp emp) {
+        return empDao.updateEmp(emp);
+    }
+
     public List getAllEmp() {
        return empDao.allEmp();
+    }
+
+    public Emp getSpecificEmp(int empId) {
+        return empDao.getEmp(empId);
     }
 }

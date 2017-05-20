@@ -16,7 +16,7 @@
 </head>
 <body>
 <form:form action="/user/add" method="post" modelAttribute="user" >
-<table border="1">
+<table border="1" align="center">
     <tr>
         <td>User Id:</td><td> <form:input path="userId"/> </td>
     </tr>

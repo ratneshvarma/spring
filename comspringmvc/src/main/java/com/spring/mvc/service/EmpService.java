@@ -9,5 +9,8 @@ import java.util.List;
  */
 public interface EmpService {
  int empInsert(Emp emp);
+ int empDelete(int empId);
+ int empUpdate(Emp emp);
  List getAllEmp();
+ Emp getSpecificEmp(int empId);
 }

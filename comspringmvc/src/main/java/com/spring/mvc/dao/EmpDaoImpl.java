@@ -25,7 +25,35 @@ public class EmpDaoImpl implements EmpDao {
         String sql="insert into employee(empId,empName,empAddress) values("+emp.getEmpId()+",'"+emp.getEmpName()+"','"+emp.getEmpAddress()+"')";
         int flag= jdbcTemplate.update(sql);
         if (flag>0)
-            System.out.println("Employye Inserted..");
+            System.out.println("Employee Inserted..");
+        return flag;
+    }
+
+    public int deleteEmp(int empId) {
+        String sql="DELETE FROM employee WHERE empId="+empId ;
+        int flag= jdbcTemplate.update(sql);
+        if (flag>0)
+            System.out.println("Employee deleted..");
+        return flag;
+    }
+
+    public Emp getEmp(int empId) {
+        return jdbcTemplate.queryForObject("select * from employee where empId=" + empId, new RowMapper<Emp>() {
+            public Emp mapRow(ResultSet resultSet, int i) throws SQLException {
+                Emp emp= new Emp();
+                emp.setEmpId(resultSet.getInt("empId"));
+                emp.setEmpName(resultSet.getString("empName"));
+                emp.setEmpAddress(resultSet.getString("empAddress"));
+                return emp;
+            }
+        });
+    }
+
+    public int updateEmp(Emp emp) {
+        String sql="update employee SET empName='"+ emp.getEmpName() +"', empAddress='"+ emp.getEmpAddress() +"' WHERE empId="+ emp.getEmpId() ;
+        int flag= jdbcTemplate.update(sql);
+        if (flag>0)
+            System.out.println("Employee deleted..");
         return flag;
     }
 

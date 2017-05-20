@@ -12,23 +12,23 @@
 
 <html>
 <head>
-    <title>Add New Emp</title>
+    <title>Update Emp</title>
 </head>
 <body>
-<form:form action="/emp/saveEmp" method="post" modelAttribute="emp" >
+<form:form action="/emp/empUpdateSave" method="post" modelAttribute="emp" >
     <table border="1" align="center">
         <tr>
-            <td>Emp Id:</td><td> <form:input path="empId"/> </td>
+            <td>Emp Id:</td><td> <form:input path="empId" value="${emp.empId}" readonly="true"/> </td>
         </tr>
         <tr>
-            <td>Emp Name:</td><td><form:input path="empName"/>  </td>
+            <td>Emp Name:</td><td><form:input path="empName" value="${emp.empName}"/>  </td>
         </tr>
         <tr>
-            <td>Address:</td><td><form:input path="empAddress"/>  </td>
+            <td>Address:</td><td><form:input path="empAddress" value="${emp.empAddress}"/>  </td>
         </tr>
 
         <tr>
-            <td colspan="2"><input type="submit" value="Add"/></td>
+            <td colspan="2"><input type="submit" value="Update"/></td>
         </tr>
 
     </table>

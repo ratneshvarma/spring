@@ -14,11 +14,12 @@
 <head>
     <title>Home</title>
 </head>
-<br/><a href="/emp/newEmp">Add Emp</a>
+<br/>
+<p bgcolor="pink"/>
+<p align="center"><font color="#5f9ea0"> <b> ${message}</b> </font></p>
+<table border="1" align="center" >
+    <tr><td colspan="5"> <center> <h2>Emp List</h2></center></td></tr>
 
-<h1>Emp List:</h1>
-
-<table border="1" >
     <tr>
 
         <th>Id</th><th>Name</th><th>Address</th><th colspan="2">Action</th>
@@ -28,11 +29,13 @@
             <td>${row.empId}</td>
             <td>${row.empName}</td>
             <td>${row.empAddress}</td>
-            <td><a href="">Delete</a></td>
-            <td><a href="">Edit</a></td>
+            <td><a href="/emp/deleteEmp?empId=${row.empId}">Delete</a></td>
+            <td><a href="/emp/updateEmp?empId=${row.empId}">Edit</a></td>
 
         </tr>
     </c:forEach>
+        <tr><td colspan="5"> <center> <a href="/emp/newEmp"><h3> Add Emp</h3></a></center></td></tr>
+
 
 
 

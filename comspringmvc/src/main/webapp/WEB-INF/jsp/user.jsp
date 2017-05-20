@@ -21,11 +21,16 @@
 <a href="/user/session-check">Session Test</a>
 <p></p>
 HttpSession Exmaple(session will create when /index use):${ sessionScope.sessionViaHttpSession.firstName}
-<br/><a href="/user/newUser">Add User</a>
-<p align="center">${message}</p>
-<h1>User List:</h1>
+<br/>
+
 ${success}
-<table border="1" >
+
+<br/>
+<p bgcolor="pink"/>
+<p align="center"><font color="#5f9ea0"> <b> ${message}</b> </font></p>
+<table border="1" align="center">
+    <tr><td colspan="6"> <center> <h2>User List</h2></center></td></tr>
+
     <tr>
 
         <th>Id</th><th>First Name</th><th>Last Name</th><th>Age</th><th colspan="2">Action</th>
@@ -41,6 +46,8 @@ ${success}
 
     </tr>
 </c:forEach>
+    <tr><td colspan="6"> <center> <a href="/user/newUser"><h3> Add User</h3></a></center></td></tr>
+
 
 
 
